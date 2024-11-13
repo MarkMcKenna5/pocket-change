@@ -7,31 +7,17 @@ import Avatar from "./avatar";
 import MoreStories from "./more-stories";
 
 import { getAllPosts } from "@/lib/api";
-import { CMS_NAME, CMS_URL } from "@/lib/constants";
-
+"sm: md: 2xl: "
 function Intro() {
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
+    <section className="flex flex-col items-center md:justify-center my-6 sm:my-10 md:my-16 2xl:my-20">
+      <h1 className="hidden">
         Blog.
       </h1>
-      <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{" "}
-        <a
-          href="https://nextjs.org/"
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          Next.js
-        </a>{" "}
-        and{" "}
-        <a
-          href={CMS_URL}
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          {CMS_NAME}
-        </a>
-        .
-      </h2>
+      <img 
+        src="/images/pocket-change.svg"
+        alt="Blog logo,'Pocket change, a blog by ibotta'"
+      />
     </section>
   );
 }
@@ -52,23 +38,23 @@ function HeroPost({
   slug: string;
 }) {
   return (
-    <section>
-      <div className="mb-8 md:mb-16">
+    <section className="mb-[3.25rem] sm:mb-[3.5rem]">
+      <div className="mb-6 md:mb-8">
         <CoverImage title={title} slug={slug} url={coverImage.url} />
       </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
+      <div className="flex flex-col">
         <div>
-          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
+          <h3 className="font-bold mb-3 text-[1.75rem] leading-tight">
             <Link href={`/posts/${slug}`} className="hover:underline">
               {title}
             </Link>
           </h3>
-          <div className="mb-4 md:mb-0 text-lg">
+          <div className="mb-4 md:mb-4 text-[1.15rem] sm:text-[1.25rem]">
             <Date dateString={date} />
           </div>
         </div>
         <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+          <p className="text-[1.15rem] sm:text-[1.25rem] leading-normal mb-4 sm:mb-8">{excerpt}</p>
           {author && <Avatar name={author.name} picture={author.picture} />}
         </div>
       </div>
