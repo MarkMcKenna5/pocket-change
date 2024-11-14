@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import Link from "next/link";
 import Avatar from "./avatar";
 import DateComponent from "./date";
 import CoverImage from "./cover-image";
+import TextSkeleton from "@/app/components/loading-skeleton/text-skeleton"
 
 function PostPreview({
   title,
@@ -23,16 +25,19 @@ function PostPreview({
       <div className="mb-5 sm:mb-8">
         <CoverImage title={title} slug={slug} url={coverImage.url} />
       </div>
-      <h3 className="font-semibold mb-5 text-[1.75rem] sm:text-[2.25rem] leading-tight sm:leading-10">
-        <Link href={`/posts/${slug}`} className="hover:underline">
-          {title}
-        </Link>
-      </h3>
-      <div className="text-xl mb-4">
-        <DateComponent dateString={date} />
-      </div>
-      <p className="text-xl leading-normal sm:leading-relaxed mb-4 sm:mb-8">{excerpt}</p>
-      {author && <Avatar name={author.name} picture={author.picture} />}
+      {/* <TextSkeleton width={"100%"}/> */}
+      <Suspense fallback={<TextSkeleton width={"100%"}/>}>
+        <h3 className="font-semibold mb-5 text-[1.75rem] sm:text-[2.25rem] leading-tight sm:leading-10">
+          <Link href={`/posts/${slug}`} className="hover:underline">
+            {title}
+          </Link>
+        </h3>
+        <div className="text-xl mb-4">
+          <DateComponent dateString={date} />
+        </div>
+        <p className="text-xl leading-normal sm:leading-relaxed mb-4 sm:mb-8">{excerpt}</p>
+        {author && <Avatar name={author.name} picture={author.picture} />}
+      </Suspense>
     </div>
   );
 }

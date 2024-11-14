@@ -1,10 +1,9 @@
 import "./globals.css";
-import { CMS_NAME } from "@/lib/constants";
 import { Roboto } from 'next/font/google'
 
 export const metadata = {
-  title: `Next.js and ${CMS_NAME} Example`,
-  description: `This is a blog built with Next.js and ${CMS_NAME}.`,
+  title: `Pocket Change | A Blog by Ibotta`,
+  description: `An example of the what can be done when Next.js meets Contentful`,
 };
 
 const roboto = Roboto({

@@ -12,6 +12,10 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)"],
       },
+      colors: {
+        'dark-mode-bg': '#15292B',
+        'dark-mode-text': '#eaeaea',
+      },
     },
   },
   future: {

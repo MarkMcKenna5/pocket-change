@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import ContentfulImage from "../lib/contentful-image";
 import Link from "next/link";
+import ImageSkeleton from "@/app/components/loading-skeleton/image-skeleton"
 
 function cn(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
@@ -27,11 +29,18 @@ export default function CoverImage({
     />
   );
 
+  const imageSkeleton = <ImageSkeleton 
+    width={"100%"}
+
+  />
+
   return (
     <div className="sm:mx-0">
       {slug ? (
         <Link href={`/posts/${slug}`} aria-label={title}>
-          {image}
+          <Suspense fallback={imageSkeleton}>
+            {image}
+          </Suspense>
         </Link>
       ) : (
         image
