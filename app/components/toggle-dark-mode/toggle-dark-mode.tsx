@@ -13,7 +13,7 @@ export default function ToggleDarkMode() {
       };
 
       return (
-        <button onClick={toggleDarkMode} className="p-2 text-xs bg-[#f782a5] hover:bg-[#df2b64bd] text-white rounded-full absolute top-4 right-4">
+        <button onClick={toggleDarkMode} className="p-1 sm:p-2 text-xs bg-[#f782a5] hover:bg-[#df2b64bd] text-white rounded-full absolute top-3 right-3 sm:top-4 sm:right-4">
           {darkMode ? 'Light Mode' : 'Dark Mode'}
         </button>
       );

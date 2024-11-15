@@ -15,7 +15,7 @@ import { getAllPosts } from "@/lib/api";
 
 function Intro() {
   return (
-    <section className="flex flex-col items-center md:justify-center my-6 sm:my-10 md:my-16 2xl:my-20">
+    <section className="flex flex-col items-center md:justify-center mb-6 mt-8 sm:my-10 md:my-16 2xl:my-20">
       <h1 className="hidden">
         Blog.
       </h1>
